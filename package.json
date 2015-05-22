@@ -1,0 +1,19 @@
+{
+  "author": "Mr Eggleton <meggleton@utcsheffield.org.uk> (http://utcsheffield.org.uk/)",
+  "name": "GCSE_Computing_DB",
+  "description": "Code and demo Databases for http://utc-sheffield.github.io/tincan_curriculum/OCR_GCSE_Computing_2012/#2-1-5",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/UTC-Sheffield/GCSE_Computing_DB.git"
+  },
+  "dependencies": {
+    "express": "",
+    "warehousejs": ""
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

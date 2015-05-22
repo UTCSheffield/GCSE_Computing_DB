@@ -1,6 +1,9 @@
-var express = require('express'),
-    warehouse = require('warehouse'),
-var SqlBackend = require('warehouse/backend/sql');
+var express = require('express');
+var https = require('https');
+var http = require('http');
+var app = express();
+var warehouse = require('warehousejs');
+var SqlBackend = require('warehousejs/backend/sql');
  
 var options = {
     driver: 'sqlite3',
@@ -9,10 +12,10 @@ var options = {
  
 
 var backend = new SqlBackend(options),
-var store = backend.objectStore('item'); 
+    store = backend.objectStore('item'); 
  
-var app = express.createServer();
- 
+var app = express();
+
 warehouse.applyRoutes(app, store);
- 
-app.listen(80);
+
+http.createServer(app).listen(80);
