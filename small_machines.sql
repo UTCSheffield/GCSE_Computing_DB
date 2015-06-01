@@ -4,3 +4,4 @@ insert into stock (name, max, taken) VALUES ("Hoist", 50, 0);
 insert into stock (name, max, taken) VALUES ("Mini Digger", 50, 0);
 insert into stock (name, max, taken) VALUES ("Turntable", 50, 0);
 insert into stock (name, max, taken) VALUES ("Platform Lift", 50, 0);
+select * from stock;
