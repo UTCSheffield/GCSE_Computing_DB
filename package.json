@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "",
-    "warehousejs": ""
+    "sqlite3": "~3.0.8"
   },
   "devDependencies": {},
   "optionalDependencies": {},
