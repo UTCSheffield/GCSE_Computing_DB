@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<p>{{sSQL}}</p>
+<table>
+    <tr>
+        <th>StockID</th>
+        <th>Name</th>
+        <th>Max</th>
+        <th>Taken</th>
+    </tr>
+	{{#each rows}}
+	    <tr>
+	        <td>{{stockid}}</td>
+	        <td>{{name}}</td>
+	        <td>{{max}}</td>
+	        <td>{{taken}}</td>
+	    </tr>
+	{{/each}}
+</table>

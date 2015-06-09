@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<p>{{sSQL}}</p>
+<table>
+    <tr><th>User Name</th>
+        <th>Stock Name</th>
+        <th>Quantity</th>
+    </tr>
+	{{#each rows}}
+	    <tr>
+	        <td>{{username}}</td>
+	        <td>{{name}}</td>
+	        <td>{{quantity}}</td>
+	    </tr>
+	{{/each}}
+</table>

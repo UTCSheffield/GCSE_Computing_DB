@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<p>{{sSQL}}</p>
+<table>
+    <tr>
+        <th>SaleID</th>
+        <th>Stockid</th>
+        <th>UserID</th>
+        <th>Quantity</th>
+    </tr>
+	{{#each rows}}
+	    <tr>
+	        <td>{{saleid}}</td>
+	        <td>{{stockid}}</td>
+	        <td>{{userid}}</td>
+	        <td>{{quantity}}</td>
+	    </tr>
+	{{/each}}
+</table>
