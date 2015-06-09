@@ -11,13 +11,15 @@ function createDb(fAction) {
 }
 
 function getAll(res) {
-	db.all("SELECT * FROM stock", function(err, rows) {
-		var sOut = "<html><body><table><tr><th>stockid</th><th>Name</th><th>max</th><th>taken</th></tr>";
+	var sSQL = "SELECT stock.stockid, stock.name as name, stock.max, SUM(sales.quantity) as taken FROM stock LEFT JOIN sales ON(stock.stockid = sales.stockid) GROUP BY stock.stockid;";
+	db.all( sSQL, function(err, rows) {
+		var sOut = "<html><head><style>div table {font-size:200%;}</style></head><body><h1>Current Stock</h1><div>"+sSQL+"</div>";
+		sOut = sOut + "<table><tr><th>Stockid</th><th>Name</th><th>Max</th><th>Taken</th></tr>";
 		var aOut = rows.map(function(row){
 			return "<tr><td>"+row.stockid+"</td><td>"+row.name+"</td><td>"+row.max+"</td><td>"+row.taken+"</td></tr>";
 		});
 
-		var sOut = sOut+aOut.join("\n")+"</table></body></html>";
+		sOut = sOut+aOut.join("\n")+"</table></body></html>";
 		res.send(sOut);
 		closeDb();
 	});
