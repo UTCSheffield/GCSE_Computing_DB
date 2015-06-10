@@ -1,0 +1,22 @@
+<h2>Result</h2>
+<p>SQL = {{sSelectSQL}}</p>
+
+<table>
+    <tr>
+        <th>StockID</th>
+        <th>Name</th>
+        <th>Max</th>
+    </tr>
+    <tr>
+        <td>stockid</td>
+        <td>name</td>
+        <td>max</td>
+    </tr>
+	{{#each rows}}
+	    <tr>
+	        <td>{{stockid}}</td>
+	        <td>{{name}}</td>
+	        <td>{{max}}</td>
+	    </tr>
+	{{/each}}
+</table>
