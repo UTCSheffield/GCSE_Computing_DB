@@ -41,7 +41,7 @@ function getSales(res) {
 }
 
 function getSalesReport(res) {
-	var sSQL = "SELECT users.username, stock.name, SUM(sales.quantity) as quantity FROM stock JOIN sales ON (stock.stockid = sales.stockid) JOIN users ON (users.userid = sales.userid) GROUP BY  users.username, stock.name;";
+	var sSQL = "SELECT users.username, users.fullname, stock.name, SUM(sales.quantity) as quantity FROM stock JOIN sales ON (stock.stockid = sales.stockid) JOIN users ON (users.userid = sales.userid) GROUP BY  users.username, stock.name;";
 	db.all( sSQL, function(err, rows) {
 		res.render('sales_report', {
 		    title:"Sales Report",
