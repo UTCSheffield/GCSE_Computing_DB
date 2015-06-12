@@ -16,7 +16,8 @@ CREATE TABLE users (
     username STRING, 
     fullname STRING
 );
-INSERT INTO users (username) VALUES ("test", "Mr Trevor Test");
+INSERT INTO users (username, fullname) VALUES ("test", "Mr Trevor Test");
+INSERT INTO users (username, fullname) VALUES ("meggleton", "Mr Eggleton");
 
 DROP TABLE sales;
 CREATE TABLE sales (  saleid INTEGER PRIMARY KEY ASC,
