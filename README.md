@@ -13,3 +13,7 @@ sudo cd /usr/local && tar --strip-components 1 -xzf /home/pi/GCSE_Computing_DB/n
 
 ## To start in debug on port 80
  sudo PORT=80 DEBUG=myapp npm start
+ 
+ if using forever
+ 
+ sudo PORT=80 forever start bin/www
