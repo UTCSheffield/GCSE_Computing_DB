@@ -1,16 +1,40 @@
 body {
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 100% "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+body.presentation {
+    font-size: 150%;
+}
 a {
   color: #00B7FF;
 }
 
-table {background: lightgray;}
+table {
+    background: lightgray;
+}
 
 th {
     width: 20%;
     text-align: left;
 }
 
-pre {background: lightblue;}
+pre {
+    background: lightblue;
+}
+
+.question{
+    background:#EEEEEE;
+}
+
+.answer{
+}
+
+.answered{
+    visibility: visible;
+    background:#EEFFEE;
+}
+
+.current {
+    font-size: 150%;
+    padding:1em;
+}
