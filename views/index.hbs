@@ -1,17 +1,78 @@
 <h1>{{title}}</h1>
-<p>This web page is being served to you by the Raspberry PI in the corner of the room.</p>
+<h2>What is an Online Database?</h2>
+<h3>What is ... </h3>
+<ul>
+    <li><span class="question">a Database? </span><span class="answer">A <abbr title="existing continuously">persistent</abbr> organised store of data</span></li>
+    <li><span class="question">an interface? </span><span class="answer">A way of interacting with something (calculator buttons and screen, the <abbr title="Graphical User Interface">GUI</abbr> of a program, the functions and methods of a code library)</span></li>
+    <li><span class="question">online? </span><span class="answer">On the internet</span>
+        <ul>
+            <li><span class="question">the internet? </span><span class="answer">Global network of computers</span></li>
+            <li><span class="question">a server? </span><span class="answer">A server is running software capable of accepting requests from a client and giving responses accordingly. <br />Servers can run on any computer including dedicated computers, which individually are also often referred to as "the server".</span></li>
+            <li><span class="question">an IP Address? </span><span class="answer">Internet Protocol Adress/Number - unique number for computer on the <abbr title="Local Area Network">LAN</abbr> or <abbr title="Wide Area Network / The Internet">WAN</abbr> <br />
+            The IP Address for this server is {{serverIP}} and 
+            the IP Address of the <abbr title="the computer that requested this web page">client</abbr> is {{clientIP}}.</span></li>
+            <li><span class="question">a Domain Name? </span><span class="answer">the text address of a computer on the internet which is looked up to an IP Address using the <abbr title="Domain Name Service">DNS</abbr>. <br />
+            <a href="http://{{dnsHostName}}" target="_blank">http://{{dnsHostName}}</a> = 
+            <a href="http://{{dnsIP}}" target="_blank">http://{{dnsIP}}</a> </span></li>
+            <li><span class="question">the web? </span><span class="answer">the <abbr title="World Wide Web">web</abbr> an information system of interlinked hypertext documents and other digital resources that are accessed via the Internet</span>
+                <ul>
+                    <li><span class="question">a web page? </span><span class="answer">HTML code displayed through a web browser a long with images and other resources</span></li>
+                    <li><span class="question">a web server? </span><span class="answer">A <abrr title="computer / program on the internet">server</abbr> which generates web pages for the web client (browser).</span></li>
+                    <li><span class="question">a web request? </span><span class="answer">The message from the web client / browser asking for a particular web page which can have send extra request data (after the ?) to do extra clever things like searching <a href="http://google.co.uk/search?q=UTC+Sheffield" target="_blank">http://google.co.uk/search?q=UTC+Sheffield</a> or booking events etc.</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<div>
+<h3>What is an Online Database?</h3>
+
+<p class="answer">An Online Database is a persistant store of structured data which can be updated and retrieved by sending web requests to a server on the internet.<br />
+Often an Online Database will have a web page interface (with visible forms and reports) and a web API.</p>
+</div>
+
+<div>
+<h3>What is an API?</h3>
+<p class="answer">An API (Application Programming Interface) is any way for 2 computer programs to communicate with each other.
+They have to be designed, so the programmers at both ends know what messages / queries mean what and so can code both ends to work together.<br />  
+A Web API allows devices with access to the internet to get or send information. 
+This is how everything from Twitter, Facebook and most mobile phone Apps work. <br />
+Because the planning and coding takes a while, often the API's are made Open so anyone can write code to talk to a system
+(but they sometimes have limits or cost money to use).</p>
+</div>
+
+<h2>This Web Server - an Online Database for Small Machines.</h2>
+<p>This web page is being served to you by a program written in javascript, it is running on the Raspberry PI in the corner of the room. <br />
+It includes a Web Interface (to do), and a Web API which is compatible with the Android App Inventor App for small machines.
+The Web API gets queries in the form of web requests, which it replies to using text that can be turned into info. 
+(We use JSON (Javascript Object Notation) because App Inventor has functions to convert JSON into App Inventor lists</p>
 <p>It is built using :-
     <ul>
-        <li><a href="http://nodejs.org/">Node.js</a> A program that executes javascript code on computers (outside of a web browser).</li>
-        <li><a href="http://expressjs.com/">Express</a> A javascript library for building webservers in Node.js</li>
-        <li><a href="https://www.sqlite.org/">Sqlite</a> A super light weight DBMS (Database Management System)</li>
+        <li><a href="http://nodejs.org/" target="_blank">Node.js</a> A program that executes javascript code on computers (outside of a web browser).</li>
+        <li><a href="http://expressjs.com/" target="_blank">Express</a> A javascript library for building webservers in Node.js</li>
+        <li><a href="https://www.sqlite.org/" target="_blank">Sqlite</a> A super light weight DBMS (Database Management System)</li>
     </ul>
 </p>
+
+
 <h2>Contents</h2>
 <ul>
-    <li><a href="/sql/" target="_blank">A tour of how the database works (SQL)</a></li>
-    <li><a href="/stock/" target="_blank">The current Stock levels</a></li>
-    <li><a href="/stock/salesreport/" target="_blank">Sales report</a></li>
-    <li><a href="/stock/max/" target="_blank">JSON array of the Maximums</a></li>
+    <li><a href="/design/" target="_blank">Design </a> - what do the Small Machines apps need to do and how do we decide what to put in the Database</li>
+    <li><a href="/sql/" target="_blank">How </a> - our database works (SQL)</li>
+    <li><a href="/app/" target="_blank">The web interface</a></li>
+    <li>The reports
+        <ul>
+        
+            <li><a href="/stock/" target="_blank">The current Stock levels</a></li>
+            <li><a href="/stock/salesreport/" target="_blank">Sales report</a></li>
+        </ul>
+    </li>
+    <li>The API
+        <ul>
     
+            <li><a href="/stock/max/" target="_blank">JSON array of the Maximums</a></li>
+        </ul>
+    </li>
 </ul>
+
+<button id="start_presentation">Start Presentation Mode</button>
