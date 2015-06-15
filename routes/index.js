@@ -30,8 +30,13 @@ router.get('/', function(req, res, next) {
           dnsIP:address
       });
   });
-  
-  
+});
+
+
+router.get('/design/', function(req, res, next) {
+  res.render('design', {
+      title: 'Small Machines Design'
+  });
 });
 
 module.exports = router;
