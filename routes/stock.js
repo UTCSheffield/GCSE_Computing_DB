@@ -2,7 +2,6 @@
 
 var express = require('express');
 var router = express.Router();
-var Handlebars = require("hbs");
 var sqlite3 = require('sqlite3').verbose();
 var db;
 
