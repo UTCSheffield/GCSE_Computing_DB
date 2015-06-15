@@ -30,7 +30,9 @@ $( document ).ready(function() {
                 nextQuestion();
             }
         }).click(function(event){
-            nextQuestion();
+            if(event.originalEvent.originalTarget.localName !== "a") { 
+                nextQuestion();
+            }
         });
     };
     
@@ -39,9 +41,11 @@ $( document ).ready(function() {
         $("body").removeClass("presentation");
         $(".current").removeClass("current");
         $(".answered").removeClass("answered");
+        $("body").off("keypress").off("click");
     };        
     
-    var togglePresentation = function() {
+    var togglePresentation = function(event) {
+        event.preventDefault();
         if(localStorage.getItem("sPresentation") === "Started") {
             localStorage.setItem("sPresentation", "Stopped");
             stopPresentation();
@@ -51,6 +55,7 @@ $( document ).ready(function() {
             startPresentation();
             $("#start_presentation").html("Exit Presentation Mode");
         }
+        return false;
     };
         
     if(localStorage.getItem("sPresentation") === "Started") {
