@@ -3,13 +3,13 @@ Code and demo Databases for http://utc-sheffield.github.io/tincan_curriculum/OCR
 
 ##Setup notes
 
-sudo aptitude install sqlite3 nodejs
+Follow the instructions here to install latest version of node https://learn.adafruit.com/node-embedded-development/installing-node-dot-js
 
-wget http://nodejs.org/dist/v0.10.28/node-v0.10.28-linux-arm-pi.tar.gz
+  sudo aptitude install sqlite3
 
-sudo cd /usr/local && tar --strip-components 1 -xzf /home/pi/GCSE_Computing_DB/node-v0.10.28-linux-arm-pi.tar.gz
+Then check out this repo cd into it. Then 
 
-
+  npm install
 
 ## To start in debug on port 80
  sudo PORT=80 DEBUG=myapp npm start
