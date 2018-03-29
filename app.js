@@ -1,7 +1,28 @@
+var sqlite3 = require('sqlite3').verbose();
+var db;
+var fs = require("fs");
+
+function createDb(fAction) {
+	db = new sqlite3.Database('small_machines.db', fAction);
+}
+
+function closeDb() {
+	db.close();
+}
+
+
+function createSQL(res) {
+	var sSQL = fs.readFileSync("small_machines.sql").toString();
+	//console.log("sSQL =", sSQL);
+	db.exec(sSQL, closeDb);
+}
+
+createDb(createSQL);
+
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -23,7 +44,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

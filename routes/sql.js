@@ -13,8 +13,9 @@ function createDb(fAction) {
 
 function createSQL(res) {
 	var sSQL = fs.readFileSync("small_machines.sql").toString();
-	console.log("sSQL =", sSQL);
-    var sTitle = "Create the tables";
+	//console.log("sSQL =", sSQL);
+	db.exec(sSQL);
+    	var sTitle = "Create the tables";
 	showStock(res, sSQL, sTitle, "create_sql");
 }
 
@@ -44,6 +45,20 @@ function updateSQL(res) {
 	db.run(sSQL);
 	showStock(res, sSQL, sTitle, "update");
 }
+
+
+function insertionSQL(res, sWHERE) {
+
+	var sTitle = "Insertion Attack";
+	var sSQL = 'UPDATE stock SET max = 60 WHERE stockid = '+ sWHERE;
+
+	var sTemplate = "insertion";
+	
+	db.exec( sSQL, function(err, rows) {
+		showStock(res, sSQL, sTitle, sTemplate);
+	});
+}
+
 
 
 function deleteSQL(res) {
@@ -113,6 +128,15 @@ router.get('/update', function(req, res, next) {
 
 router.get('/delete', function(req, res, next) {
    	createDb(deleteSQL.bind(this, res));
+});
+
+router.get('/insertion', function(req, res, next) {
+    var sWhere = "2";
+	if(req.query.where){
+		sWhere = req.query.where
+	}
+    
+   	createDb(insertionSQL.bind(this, res, sWhere));
 });
 
 router.get('/where', function(req, res, next) {

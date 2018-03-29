@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<p>Now we will update a record  the Stock table. But in such a way that it could be attacked.</p>
+<p>What if we type this into the stockid input instead 
+<pre>1; DELETE FROM stock WHERE stockid>0</pre>
+</p>
+
+<form>
+    <label>Stock ID to update ? </label>
+    <input name="where" length="150" size="70" value="2"/>
+    <input type="submit" value="Run Query"/>
+</form>
+
+<h2>SQL</h2>
+<pre>{{sSQL}}</pre>
+
+
+{{> stock_select}}
+
+<a href="/">Next</a>
