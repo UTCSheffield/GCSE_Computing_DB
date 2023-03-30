@@ -1,7 +1,8 @@
 <h1>{{title}}</h1>
-<p>Now we will update a record  the Stock table. But in such a way that it could be attacked.</p>
+<p>Now we will update a record  the Stock table. </p>
+<p>But we have no <em>Data Sanitisation</em> on our "Stock ID to update ?" input so it can be attacked.</p>
 <p>What if we type this into the stockid input instead 
-<pre>1; DELETE FROM stock WHERE stockid>0</pre>
+<pre>1; DELETE FROM stock WHERE stockid>3</pre>
 </p>
 
 <form>
