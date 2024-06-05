@@ -59,6 +59,32 @@ function insertionSQL(res, sWHERE) {
 	});
 }
 
+function sanitisationSQL(res, sStockid) {
+
+	var sTitle = "Data Sanitisation";
+
+	var sSQL = 'UPDATE stock SET max = 60 WHERE stockid = ?';
+
+	var sTemplate = "sanitisation";
+	const stockid = Number.parseInt(sStockid, base);
+  	if (Number.isNaN(stockid)) {
+		res.render('error', {
+			title:"HTTP 500 : Error Page",
+			message: "Hacking attempt likely",
+		    sSQL:sSQL,
+			error:{status:500, stack: sSQL + " : "+ sStockid}
+		})
+		return null;
+	}
+	var stmt = db.prepare('SELECT * FROM users WHERE id=?');
+	var row = stmt.get(stockid);
+	
+	
+	db.exec( sSQL.replace("?", sStockid), function(err, rows) {
+		
+		showStock(res, sSQL, sTitle, sTemplate);
+	});
+}
 
 
 function deleteSQL(res) {
@@ -137,6 +163,16 @@ router.get('/insertion', function(req, res, next) {
 	}
     
    	createDb(insertionSQL.bind(this, res, sWhere));
+});
+
+
+router.get('/sanitisation', function(req, res, next) {
+    var stockid = "2";
+	if(req.query.stockid){
+		stockid = req.query.stockid
+	}
+    
+   	createDb(sanitisationSQL.bind(this, res, stockid));
 });
 
 router.get('/where', function(req, res, next) {
