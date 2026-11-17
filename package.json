@@ -6,13 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "",
-    "cookie-parser": "",
-    "debug": "",
-    "express": "",
-    "hbs": "",
-    "serve-favicon": "",
-    "sqlite3": ""
+    "body-parser": "^2.4.0",
+    "cookie-parser": "^1.4.7",
+    "debug": "^4.4.3",
+    "express": "^5.3.0",
+    "hbs": "^4.4.0",
+    "serve-favicon": "^2.5.1",
+    "sqlite3": "^6.0.1"
   },
   "devDependencies": {},
   "optionalDependencies": {},
