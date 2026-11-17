@@ -5,17 +5,17 @@ var os = require("os");
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var oInterfaces = os.networkInterfaces();
-  var oNetworks = oInterfaces.eth0;
-  if(!oNetworks) {
-      oNetworks = oInterfaces.lo;
-  }
-  if(!oNetworks) {
-      oNetworks = oInterfaces.wlan0;
-  }
+  var oNetworks = oInterfaces.eth0 || oInterfaces.en0 || oInterfaces.lo || oInterfaces.wlan0;
   
-  var oIPv4 = oNetworks.filter(function(oAddr){
-    return oAddr.family === 'IPv4';
-  });
+  var serverIP = 'Unknown';
+  if (oNetworks && Array.isArray(oNetworks)) {
+    var oIPv4 = oNetworks.filter(function(oAddr){
+      return oAddr.family === 'IPv4';
+    });
+    if (oIPv4.length > 0) {
+      serverIP = oIPv4[0].address;
+    }
+  }
   
   var dns = require("dns");
   var dnsHostName = "google.co.uk";
@@ -25,9 +25,9 @@ router.get('/', function(req, res, next) {
       res.render('index', {
           title: 'GCSE Computing Databases',
           clientIP: req.ip,
-          serverIP: oIPv4[0].address,
+          serverIP: serverIP,
           dnsHostName:dnsHostName,
-          dnsIP:address
+          dnsIP:address || 'Unknown'
       });
   });
 });
