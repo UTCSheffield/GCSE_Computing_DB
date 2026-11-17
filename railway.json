@@ -4,8 +4,6 @@
     "builder": "nixpacks"
   },
   "deploy": {
-    "startCommand": "npm start",
-    "restartPolicyType": "on_failure",
-    "restartPolicyMaxRetries": 5
+    "startCommand": "npm start"
   }
 }
